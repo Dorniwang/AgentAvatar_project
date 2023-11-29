@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html>
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>AgentAvatar</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="./files/bootstrap.min.css">
+    <link rel="stylesheet" href="./files/font-awesome.min.css">
+    <link rel="stylesheet" href="./files/codemirror.min.css">
+    <link rel="stylesheet" href="./files/app.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h1 class="col-md-20 text-center">
+                <br></br>
+                <b>AgentAvatar</b>: Disentangling Planning, Driving and Rendering for Photorealistic Avatar Agents<br>
+<!--                 <small>
+                    CVPR 2022 (Oral Presentation)
+                </small> -->
+            </h1>
+            <hr style="margin-top:0px">
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://Dorniwang.github.io/" style="font-size: 16px;">
+                            Duomin Wang
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://scholar.google.com/citations?hl=en&user=tYzD6G4AAAAJ&view_op=list_works&sortby=pubdate" style="font-size: 16px;">
+                            Bin Dai
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://YuDeng.github.io/" style="font-size: 16px;">
+                            Yu Deng
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li>
+                    <li>
+                        <a href="https://sites.google.com/site/zjuwby/?pli=1" style="font-size: 16px;">
+                            Baoyuan Wang
+                        </a>
+                        <!-- <sup>1</sup> -->
+                    </li><br>
+                    <a></a><br>
+                    <li>
+                        <!-- <sup>1</sup> -->
+                        <a href="https://www.xiaoice.com/" style="font-size: 16px;">
+                            Xiaobing.ai
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <ul class="nav nav-pills nav-justified">
+                    <li>
+                        <!-- <a href="https://arxiv.org/abs/2211.14506"> -->
+                        <a>
+                            <img src="./files/paper.png" height="60px">
+                            <h4><strong>Paper</strong></h4>
+                        </a>
+                    </li>
+
+                    <li>
+                        <!-- <a onClick="alert('Code coming soon!\nContact dengyu2008@hotmail.com for more details.')"> -->
+                        <!-- <a href="https://github.com/Dorniwang/PD-FGC-inference"> -->
+                        <a>
+                            <img src="./files/github.png" height="60px">
+                            <h4><strong>Code</strong></h4>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <a>
+                    <!-- <video style="width:100%;height:100%;" playsinline autoplay loop preload muted>
+                        <source src="./files/cover.mp4" type="video/mp4">
+                    </video> -->
+                    <img src="./files/teaser.png" class="img-responsive" alt="teaser"><br>
+                    
+                </a>
+                <p class="text-justify" style="font-size: 16px;">
+                    A showcase example. Our process begins with a high-level description of the environment and avatar, which is input into our
+                    LLM-based “planner”. This planner then produces a detailed description of facial motions. These descriptions are subsequently fed into
+                    the “driving Engine” and, finally, the “render” outputs photo-realistic video sequences that correspond to the initial inputs.
+                </p>
+                <br></br>
+                <h2>
+                    Abstract
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    In this study, our goal is to create interactive avatar agents that can autonomously plan and animate nuanced facial movements realistically, from both visual and behavioral perspectives. Given high-level inputs about the environment and agent profile, our framework harnesses LLMs to produce a series of detailed text descriptions of the avatar agents' facial motions. These descriptions are then processed by our task-agnostic driving engine into motion token sequences, which are subsequently converted into continuous motion embeddings that are further consumed by our standalone neural-based renderer to generate the final photorealistic avatar animations. These streamlined processes allow our framework to adapt to a variety of non-verbal avatar interactions, both monadic and dyadic. Our extensive study, which includes experiments on both newly compiled and existing datasets featuring two types of agents – one capable of monadic interaction with the environment, and the other designed for dyadic conversation – validates the effectiveness and versatility of our approach. To our knowledge, we advanced a leap step by combining LLMs and neural rendering for generalized non-verbal prediction and photo-realistic rendering of avatar agents. 
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Video
+                </h2>
+                <hr style="margin-top:0px">
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/RCb49MlwQ-Y" allowfullscreen=""
+                            style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Planner, Driving Module and Render Module
+                </h2>
+                <hr style="margin-top:0px">
+                <img src="./files/planner.png" class="img-responsive" alt="planner" style="padding-left:25%;padding-right:25%;">
+                <p class="text-center" style="font-size: 16px;">
+                    LLM-based Planner, which takes the information from
+                    both the environment and agent as input and generates the detailed
+                    text description of the facial motion for the avatar agent
+                </p>
+                <br></br>
+                <img src="./files/driving.png" class="img-responsive" alt="driving" style="padding-left:10%;padding-right:10%;">
+                <p class="text-center" style="font-size: 16px;">
+                    Our driving module, which converts a detailed textual
+                description into discrete expression and head pose tokens.  
+                </p>
+                <br></br>
+                <img src="./files/render.png" class="img-responsive" alt="driving" style="padding-left:15%;padding-right:15%;">
+                <p class="text-center" style="font-size: 16px;">
+                    llustration of the major components within our render.
+                    Audio input enables when agent act as “speaker"
+                </p>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Planning Results and Driving Results
+                </h2>
+                <hr style="margin-top:2px">
+                <p class="text-center" style="font-size: 16px;">
+                    The qualitative results of the planner from (left)
+                    DailyDialogue and (right) EnvPersona datasets.
+                    AgentAvatar is capable of generating different fine-grained motion description based on the different persona and different environment inputs.
+                </p>
+                <img src="./files/planner_result.png" class="img-responsive" alt="planner_result" style="padding-left:20%;padding-right:20%;">
+                <hr style="margin-top:2px">
+                <p class="text-center" style="font-size: 16px;">
+                    The qualitative result of driving engine. We show two different cases here to demonstrate the text-driven capability of our model. AgentAvatar can translate fine-grained motion description text into motion sequence, and further be rendered to a video.
+                </p>
+                <img src="./files/driving_result.png" class="img-responsive" alt="driving_result" style="padding-left:5%;padding-right:5%;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Conversation Demonstrate of Our System
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-center" style="font-size: 16px;">
+                    We here show two conversation demo of the end-to-end system. All the facial motions of each person are generated by our system based on the relationship of two people and the conversation.
+                </p>
+            </div>
+            <div class="row justify-content-center" style="align-items:center; display:flex; margin-bottom: 20px;">
+                <video style="width:100%;height:50%;padding-left:5%;padding-right:5%;" controls style="margin: 5px;" >
+                    <source src="./files/conversation demo1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="row justify-content-center" style="align-items:center; display:flex; margin-bottom: 20px;">
+                <video style="width:100%;height:50%;padding-left:5%;padding-right:5%;" controls style="margin: 5px;" >
+                    <source src="./files/conversation demo2.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+                <div class="text-center">
+                    <h2>
+                        Citation
+                    </h2>
+                </div>
+                <hr style="margin-top:0px">
+                <div class="form-group col-md-12 col-md-offset-0">
+                    <div class="CodeMirror cm-s-default CodeMirror-wrap" style="font-size: 16px;">
+                        <div
+                            style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 4px; ">
+                            <textarea autocorrect="off" autocapitalize="off" spellcheck="false"
+                                style="position: absolute; padding: 0px; width: 1000px; height: 1em; outline: none;"
+                                tabindex="0"></textarea></div>
+                        <div class="CodeMirror-vscrollbar" cm-not-content="true">
+                            <div style="min-width: 1px; height: 0px;"></div>
+                        </div>
+                        <div class="CodeMirror-hscrollbar" cm-not-content="true">
+                            <div style="height: 100%; min-height: 1px; width: 0px;"></div>
+                        </div>
+                        <div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div>
+                        <div class="CodeMirror-gutter-filler" cm-not-content="true"></div>
+                        <div class="CodeMirror-scroll" tabindex="-1">
+                            <div class="CodeMirror-sizer"
+                                style="margin-left: 0px; margin-bottom: -17px; border-right-width: 13px; min-height: 162px; padding-right: 0px; padding-bottom: 0px;">
+                                <div style="position: relative; top: 0px;">
+                                    <div class="CodeMirror-lines">
+                                        <div style="position: relative; outline: none;">
+                                            <div class="CodeMirror-measure">AخA</div>
+                                            <div class="CodeMirror-measure"></div>
+                                            <div style="position: relative; z-index: 1;"></div>
+                                            <div class="CodeMirror-cursors">
+                                                <div class="CodeMirror-cursor"
+                                                    style="left: 4px; top: 0px; height: 17.1406px;">&nbsp;</div>
+                                            </div>
+                                            <div class="CodeMirror-code" style="">
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;">@inproceedings{wang2023agentavatar,</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  title={Disentangling Planning, Driving and Rendering for Photorealistic Avatar Agents},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  author={Wang, Duomin and Dai, Bin and Deng, Yu and Wang, Baoyuan},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  journal={arxiv},</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;"> &nbsp;  year={2023}</span></pre>
+                                                <pre
+                                                    class=" CodeMirror-line "><span style="padding-right: 0.1px;">}</span></pre>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="position: absolute; height: 13px; width: 1px; top: 280px;"></div>
+                            <div class="CodeMirror-gutters" style="display: none; height: 300px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0 text-center">
+                <br></br>
+                <h2>
+                    Acknowledgements
+                </h2>
+                <hr style="margin-top:0px">
+                <p class="text-justify" style="font-size: 16px;">
+                    <!-- We thank Harry Shum for the fruitful advice and discussion to improve the paper. <br> -->
+                    The website template was adapted from <a href="https://yudeng.github.io/GRAM/">GRAM</a>.
+                </p>
+            </div>
+        </div>
+
+
+</body>
+
+</html>
